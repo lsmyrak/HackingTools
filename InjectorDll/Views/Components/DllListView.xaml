@@ -1,0 +1,75 @@
+﻿<UserControl x:Class="InjectorDll.Views.Components.DllListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:InjectorDll.Views.Components"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" 
+             d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label 
+                Grid.Column="0"
+                Grid.Row="0"
+                Content="Dll List : "
+                FontSize="25"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"       
+                />
+
+        </Grid>
+        <WrapPanel                
+            Grid.Column="1"
+            Grid.Row="1"
+            Margin="2"
+            >
+            <Button
+            Command="{Binding CmdAddDll}"
+            Content="Add Dll"                
+            />
+            <Button
+                Command="{Binding CmdRemoveDll}"
+                Content="Remove Dll"
+                />
+            <Button
+                Command="{Binding CmdClearList}"
+                Content="Clear List"
+/>
+        </WrapPanel>
+        <DataGrid
+           Grid.Row="2"
+            ItemsSource="{Binding  DllNameViewModels, Mode=TwoWay}"
+            SelectionMode="Single"
+            SelectedItem="{Binding SelectedDll}"
+            SelectionUnit="FullRow"
+            AutoGenerateColumns="False"
+            IsReadOnly="True"
+           >
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header="Id:"
+                    Binding="{Binding Id}"
+                    />
+                <DataGridTextColumn
+                    Header="Dll Name:"
+                    Binding="{Binding Name}"
+                    MinWidth="200"
+                 />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>
