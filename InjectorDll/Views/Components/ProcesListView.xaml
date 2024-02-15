@@ -34,9 +34,11 @@
                     Content="Process List:"            
                 />
             <Button
-                    Grid.Column="1"
-                    Content="Reflresh process list"
-                    />
+                Grid.Column="1"
+                Command="{Binding CmdRefreshProcessList}"
+                Content="Refresh process list"                
+             />
+            
         </Grid>
         <WrapPanel
             Grid.Row="1">
@@ -50,6 +52,7 @@
                 />
             <Button 
                 Content="Clear Filtr"
+                Command="{Binding CmdClearFiltr}"
                 />
         </WrapPanel>
         <DataGrid 
@@ -59,6 +62,7 @@
             SelectedItem="{Binding SelectedProcess}"
             SelectionUnit="FullRow"
             AutoGenerateColumns="False"
+            IsReadOnly="True"
                    >
             <DataGrid.Columns>
                 <DataGridTextColumn
@@ -79,7 +83,7 @@
             HorizontalAlignment="Center"
             >
             <Button 
-                Content="Inject process" 
+                Content="Inject dll to process" 
                 />
             <Button 
                 Content="Kill process"/>
