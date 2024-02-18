@@ -47,34 +47,42 @@
                 FontSize="15"
                 />
             <TextBox 
-                Text="{Binding Finder}"
+                Text="{Binding Finder , Mode=TwoWay ,UpdateSourceTrigger=PropertyChanged}"
                 MinWidth="200"
                 />
             <Button 
                 Content="Clear Filtr"
-                Command="{Binding CmdClearFiltr}"
+                Command="{Binding CmdClearFinder}"
                 />
         </WrapPanel>
         <DataGrid 
             Grid.Row="2"
-            ItemsSource="{Binding ProcessList, Mode=TwoWay}"
-            SelectionMode="Single"
+            ItemsSource="{Binding ProcessIdNameViewModels, Mode=TwoWay}"
             SelectedItem="{Binding SelectedProcess}"
             SelectionUnit="FullRow"
+            SelectionMode="Single"
+            MaxHeight="250"
             AutoGenerateColumns="False"
             IsReadOnly="True"
+            ScrollViewer.CanContentScroll="True" 
+            ScrollViewer.VerticalScrollBarVisibility="Auto"
+            ScrollViewer.HorizontalScrollBarVisibility="Auto"
                    >
             <DataGrid.Columns>
                 <DataGridTextColumn
-                    Header="Process Name:"
-                    Binding="{Binding ProcessName}"
+                    Header="Pid :"
+                    Binding="{Binding Pid}"
                     MinWidth="200"
                     />
                 <DataGridTextColumn
-                    Header="PID:"
-                    Binding="{Binding Pid}"
+                    Header="Process Name:"
+                    Binding="{Binding Name}"
                     MinWidth="50"
                     />
+                    <DataGridTextColumn
+                    Header="Windndow Title:"
+                    Binding="{Binding WindowTitle}"
+                     />
             </DataGrid.Columns>
         </DataGrid>
         <WrapPanel 
@@ -85,8 +93,6 @@
             <Button 
                 Content="Inject dll to process" 
                 />
-            <Button 
-                Content="Kill process"/>
-        </WrapPanel>
+            </WrapPanel>
     </Grid>
 </UserControl>
