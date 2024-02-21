@@ -7,7 +7,7 @@
         xmlns:view="clr-namespace:InjectorDll.Views"
         xmlns:local="clr-namespace:InjectorDll"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="750">
+        Title="MainWindow" Height="450" Width="850">
     <Grid
         HorizontalAlignment="Stretch"
         VerticalAlignment="Stretch">

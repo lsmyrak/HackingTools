@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:InjectorDll.Views"
              xmlns:components="clr-namespace:InjectorDll.Views.Components"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="850">
     <Grid
       Style="{StaticResource MainWindow}">
         <Grid.ColumnDefinitions>

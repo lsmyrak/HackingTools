@@ -14,7 +14,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
@@ -33,17 +33,12 @@
                     HorizontalAlignment="Center"
                     Content="Process List:"            
                 />
-            <Button
-                Grid.Column="1"
-                Command="{Binding CmdRefreshProcessList}"
-                Content="Refresh process list"                
-             />
-            
+                
         </Grid>
         <WrapPanel
             Grid.Row="1">
             <Label 
-                Content="Find the process by name:"
+                Content="Find the process:"
                 FontSize="15"
                 />
             <TextBox 
@@ -54,6 +49,11 @@
                 Content="Clear Filtr"
                 Command="{Binding CmdClearFinder}"
                 />
+            <Button
+                Grid.Column="1"
+       Command="{Binding CmdRefreshProcessList}"
+       Content="Refresh process list"                
+    />
         </WrapPanel>
         <DataGrid 
             Grid.Row="2"
