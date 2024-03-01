@@ -16,9 +16,25 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <components:ProcesListView Grid.Column="0" Grid.Row="1" DataContext="{Binding ProcessListViewModel}"/>
-        <components:DllListView Grid.Column="1" Grid.Row="1"  DataContext="{Binding DllListViewModel}"/>
+        <components:ProcesListView 
+            Grid.Column="0" 
+            Grid.Row="1" 
+            DataContext="{Binding ProcessListViewModel}"
+            />
+        <components:DllListView 
+            Grid.Column="1"
+            Grid.Row="1"
+            DataContext="{Binding DllListViewModel}"
+            />
+        <Button
+            Grid.Column="0"
+            Grid.Row="2"
+            Content="Inject process"
+            Command="{Binding CmdInjectProcess}"
+            IsEnabled="{Binding IsEnable, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            />
 
     </Grid>
 </UserControl>

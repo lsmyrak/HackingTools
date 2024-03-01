@@ -1,10 +1,5 @@
 ﻿using Microsoft.Win32;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace InjectorDll.ViewModels
@@ -12,15 +7,15 @@ namespace InjectorDll.ViewModels
     public class DllListViewModel : ViewModelBase
     {
         // private list dll..
-        private  ObservableCollection<DllNameViewModel> _dllNameViewModels;
+        private ObservableCollection<DllNameViewModel> _dllNameViewModels;
 
         //public dll list
         public ObservableCollection<DllNameViewModel> DllNameViewModels
-        {  
-            get 
-            { 
-                return _dllNameViewModels; 
-            } 
+        {
+            get
+            {
+                return _dllNameViewModels;
+            }
             set
             {
                 _dllNameViewModels = value;
@@ -30,12 +25,12 @@ namespace InjectorDll.ViewModels
         }
         public DllNameViewModel SelectedDll
         {
-            get 
-            { 
-                return _selectedDll; 
+            get
+            {
+                return _selectedDll;
             }
             set
-            { 
+            {
                 _selectedDll = value;
                 OnPropertyChanged(() => SelectedDll);
             }
@@ -68,7 +63,7 @@ namespace InjectorDll.ViewModels
 
         public ICommand CmdRemoveDll
         {
-            get 
+            get
             {
                 if (_cmdRemoveDll == null)
                 {
@@ -79,7 +74,7 @@ namespace InjectorDll.ViewModels
         }
 
         public ICommand CmdClearList
-        { 
+        {
             get
             {
                 if (_cmdClearList == null)

@@ -1,21 +1,23 @@
-﻿using InjectorDll.ViewModels;
+﻿using ProcessInjector.Common;
+using ProcessInjector.ViewModel;
 using System.Windows;
 
-namespace InjectorDll
+namespace ProcessInjector
 {
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application
     {
+        Mediator mediator = new Mediator();
         protected override void OnStartup(StartupEventArgs e)
         {
-            MainWindow = new MainWindow()
+            MainWindow mainWindow = new MainWindow()
             {
-                DataContext = new ProcesssInjectorViewModel()
+                DataContext = new ProcessInjectorViewModel(mediator)
             };
 
-            MainWindow.Show();
+            mainWindow.Show();
             base.OnStartup(e);
         }
     }

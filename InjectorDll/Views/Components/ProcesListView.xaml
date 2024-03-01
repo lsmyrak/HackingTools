@@ -58,7 +58,7 @@
         <DataGrid 
             Grid.Row="2"
             ItemsSource="{Binding ProcessIdNameViewModels, Mode=TwoWay}"
-            SelectedItem="{Binding SelectedProcess}"
+            SelectedItem="{Binding SelectedProcess, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsSynchronizedWithCurrentItem="True"
             SelectionUnit="FullRow"
             SelectionMode="Single"
             MaxHeight="250"
@@ -85,14 +85,5 @@
                      />
             </DataGrid.Columns>
         </DataGrid>
-        <WrapPanel 
-            Grid.Row="3" 
-            VerticalAlignment="Bottom" 
-            HorizontalAlignment="Center"
-            >
-            <Button 
-                Content="Inject dll to process" 
-                />
-            </WrapPanel>
     </Grid>
 </UserControl>

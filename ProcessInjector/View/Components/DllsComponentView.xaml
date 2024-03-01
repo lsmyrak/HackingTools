@@ -1,12 +1,11 @@
-﻿<UserControl x:Class="InjectorDll.Views.Components.DllListView"
+﻿<UserControl x:Class="ProcessInjector.View.Components.DllsComponentView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:InjectorDll.Views.Components"
+             xmlns:local="clr-namespace:ProcessInjector.View.Components"
              mc:Ignorable="d" 
-             d:DesignHeight="450" 
-             d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
@@ -38,28 +37,33 @@
             Margin="2"
             >
             <Button
-            Command="{Binding CmdAddDll}"
+            Command="{Binding ButtonAddDllToList}"
+            
             Content="Add Dll"                
             />
             <Button
-                Command="{Binding CmdRemoveDll}"
+                Command="{Binding ButtonRemoveDllFromList}"
                 Content="Remove Dll"
                 />
             <Button
-                Command="{Binding CmdClearList}"
+                Command="{Binding ButtonClearList}"
                 Content="Clear List"
 />
         </WrapPanel>
         <DataGrid
            Grid.Row="2"
-            ItemsSource="{Binding  DllNameViewModels, Mode=TwoWay}"
+            ItemsSource="{Binding  Dlls}"
             SelectionMode="Single"
             SelectedItem="{Binding SelectedDll, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
             SelectionUnit="FullRow"
             AutoGenerateColumns="False"
-            IsReadOnly="True"
+            IsReadOnly="true"
            >
             <DataGrid.Columns>
+                <DataGridCheckBoxColumn
+                    Header="Chceck"
+                    Binding="{Binding IsChceked}"
+                    />
                 <DataGridTextColumn
                     Header="Id:"
                     Binding="{Binding Id}"
@@ -69,6 +73,11 @@
                     Binding="{Binding Name}"
                     MinWidth="200"
                  />
+                <DataGridTextColumn
+                    Header="Full Path"
+                    Binding="{Binding FullPath}"
+                    Width="200"
+                    />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace InjectorDll.ViewModels
@@ -20,10 +15,22 @@ namespace InjectorDll.ViewModels
 
         private ICommand _cmdRefreshProcessList;
         private ICommand _cmdClearFinder;
-
-
+        private ProcessIdNameViewModel _selectedProcess;
         private string _finder;
 
+
+        public ProcessIdNameViewModel SelectedProcess
+        {
+            get
+            {
+                return _selectedProcess;
+            }
+            set
+            {
+                _selectedProcess = value;
+                OnPropertyChanged(() => SelectedProcess);
+            }
+        }
         public ObservableCollection<ProcessIdNameViewModel> ProcessIdNameViewModels
         {
             get
@@ -38,7 +45,7 @@ namespace InjectorDll.ViewModels
         }
 
         public ICommand CmdRefreshProcessList
-        { 
+        {
             get
             {
                 if (_cmdRefreshProcessList == null)
@@ -48,9 +55,9 @@ namespace InjectorDll.ViewModels
                 return _cmdRefreshProcessList;
             }
         }
-        
+
         public ICommand CmdClearFinder
-        { 
+        {
             get
             {
                 if (_cmdClearFinder == null)
@@ -59,16 +66,16 @@ namespace InjectorDll.ViewModels
                 }
                 return _cmdClearFinder;
             }
-          }
+        }
 
         public string Finder
         {
             get
-            { 
+            {
                 return _finder;
             }
-            set 
-            { 
+            set
+            {
                 _finder = value;
                 OnPropertyChanged(() => Finder);
                 ProcessIdNameViewModels = GetProcessList(Finder);
@@ -80,7 +87,7 @@ namespace InjectorDll.ViewModels
             ProcessIdNameViewModels = GetProcessList(Finder);
         }
 
-        private void ClearFinder() 
+        private void ClearFinder()
         {
             Finder = string.Empty;
         }
@@ -95,12 +102,12 @@ namespace InjectorDll.ViewModels
                             Pid = x.Id,
                             Name = x.ProcessName,
                             WindowTitle = x.MainWindowTitle,
-                           })).ToList();
-                return new ObservableCollection<ProcessIdNameViewModel>(processList.Where(x => 
-                   x.Name.ToLower().Contains(filtr.ToLower()) 
+                        })).ToList();
+                return new ObservableCollection<ProcessIdNameViewModel>(processList.Where(x =>
+                   x.Name.ToLower().Contains(filtr.ToLower())
                 || x.WindowTitle.ToLower().Contains(filtr.ToLower()))
                     .ToList());
-           }
+            }
             catch (Exception ex)
             {
                 return null;
@@ -108,5 +115,5 @@ namespace InjectorDll.ViewModels
         }
 
     }
-  }
+}
 
