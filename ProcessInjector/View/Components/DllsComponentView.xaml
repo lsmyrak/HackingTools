@@ -51,13 +51,14 @@
 />
         </WrapPanel>
         <DataGrid
+           x:Name="DllGrid" 
            Grid.Row="2"
-            ItemsSource="{Binding  Dlls}"
-            SelectionMode="Single"
-            SelectedItem="{Binding SelectedDll, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-            SelectionUnit="FullRow"
-            AutoGenerateColumns="False"
-            IsReadOnly="true"
+           ItemsSource="{Binding  Dlls}"
+           SelectionMode="Single"
+           SelectedItem="{Binding SelectedDll, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+           SelectionUnit="FullRow"
+           AutoGenerateColumns="False"
+           IsReadOnly="true"
            >
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn

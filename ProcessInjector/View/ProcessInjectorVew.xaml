@@ -29,11 +29,18 @@
           Grid.Row="1"
           DataContext="{Binding DllsVM}"
           />
-        <Button
+        <WrapPanel
           Grid.Column="0"
-          Grid.Row="2"
-          Content="Inject process"
-          Command="{Binding ButtonInject}"
-          />
+          Grid.Row="2">
+            <Button
+                Content="Inject"
+                Command="{Binding ButtonInject}"/>
+            <Button
+                Content="Shell Inject"
+                Command="{Binding ButtonInjectSimple}"
+                />
+        </WrapPanel>
+          
+          
     </Grid>
 </UserControl>
